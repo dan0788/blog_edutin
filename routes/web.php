@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\holamundoController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,5 +14,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return "Hola mundo";
+});
+Route::get('/hola',[holamundoController::class,'index'])->name('home');
+Route::get('/submit', function () {
+    return "Hi";
 });
