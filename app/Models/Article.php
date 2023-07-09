@@ -10,18 +10,23 @@ class Article extends Model
     use HasFactory;
 
     protected $guarded = [
-        'id_articles','created_at','updated_at'
+        'id',
+        'created_at',
+        'updated_at'
     ];
-
-    public function user(){
+/* relación de uno a muchos inversa(article-user) */
+    public function user()
+    {
         return $this->belongsTo(User::class);
     }
-
-    public function comments(){
+/* relación de uno a muchos (article-comments) */
+    public function comments()
+    {
         return $this->hasMany(Comment::class);
     }
-
-    public function categories(){
+/* relación de uno a muchos inversa(article-categories) */
+    public function categories()
+    {
         return $this->belongsTo(Category::class);
     }
 }

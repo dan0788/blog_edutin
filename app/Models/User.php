@@ -11,7 +11,11 @@ use Laravel\Sanctum\HasApiTokens;
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
-
+    protected $guarded = [
+        'id',
+        'created_at',
+        'updated_at'
+    ];
     /**
      * The attributes that are mass assignable.
      *
@@ -41,15 +45,15 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-
+/* relación uno a uno (user-profile) */
     public function profile(){
         return $this->hasOne(Profile::class);
     }
-
+/* relación uno a muchos (user-articles) */
     public function articles(){
         return $this->hasMany(Article::class);
     }
-
+/* relación uno a muchos (user-comments) */
     public function comments(){
         return $this->hasMany(Comment::class);
     }

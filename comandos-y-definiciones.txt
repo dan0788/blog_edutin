@@ -1,0 +1,19 @@
+php artisan make:model nombre-modelo -m  -> crea el modelo de la tabla de bdd junto con su 
+    migración
+php artisan serve -> para ejecutar el servidor de artisan php
+php artisan migrate -> crea las migraciones en el orden de su timestamp en su nombre
+php artisan tinker -> para comprobar manualmente las relaciones de tablas
+    $user= new User; -> crear objeto
+    $user->profile(); -> comprobar relación con la tabla profile
+    $user::all(); -> mostrar todos los registros en el objeto $user
+    $user->password=Hash::make('12345'); -> genera una clave encriptada
+    $user->save() -> para guardar cambios en la bdd
+
+
+
+
+
+/* --------------Definiciones----------------- */
+$fillable=[] -> Por defecto, todos los campos se tratan como protegidos y se debe indicar cuales 
+    pueden ser llenados de esta forma
+$guarded=[] -> no acepta la asignación masiva de los campos que estén dentro del array

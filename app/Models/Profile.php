@@ -10,9 +10,9 @@ class Profile extends Model
     use HasFactory;
 
     protected $guarded = [
-        'id_profiles','created_at','updated_at'
+        'id','created_at','updated_at'
     ];
-
+/* relación de uno a uno inversa (profile-user) */
     public function user(){
         return $this->belongsTo(User::class);
     }
