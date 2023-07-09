@@ -14,12 +14,12 @@ return new class extends Migration
     public function up()
     {
         Schema::create('categories', function (Blueprint $table) {
-            $table->id();
+            $table->id('id_categories');
             $table->string('name',40)->unique();
-            $table->string('slug',60)->unique();
-            $table->string('image',255);
+            $table->string('slug_categories',60)->unique();
+            $table->string('image_categories',255);
             $table->boolean('is_featured')->default(0);
-            $table->boolean('status')->default(0);
+            $table->boolean('status_categories')->default(0);
             $table->timestamps();
         });
     }

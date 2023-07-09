@@ -10,7 +10,7 @@ class Comment extends Model
     use HasFactory;
 
     protected $guarded = [
-        'id','created_at','updated_at'
+        'id_comments','created_at','updated_at'
     ];
 
     public function user(){

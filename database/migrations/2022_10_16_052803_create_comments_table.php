@@ -14,21 +14,23 @@ return new class extends Migration
     public function up()
     {
         Schema::create('comments', function (Blueprint $table) {
-            $table->id();
+            $table->id('id_comments');
             $table->tinyInteger('value');
             $table->string('description',255);
-            $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')//para determinar foreign key
+            $table->timestamps();
+            $table->unsignedBigInteger('id_users');
+            $table->foreign('id_users')//para determinar foreign key
                 ->references('id')//campo de referencia
                 ->on('users')//tabla de referencia
-                ->onDelete('cascade');
-            $table->unsignedBigInteger('article_id');
-            $table->foreign('article_id')//para determinar foreign key
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
+            $table->unsignedBigInteger('id_articles');
+            $table->foreign('id_articles')//para determinar foreign key
                 ->references('id')//campo de referencia
                 ->on('articles')//tabla de referencia
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
-            $table->timestamps();
+            
         });
     }
 

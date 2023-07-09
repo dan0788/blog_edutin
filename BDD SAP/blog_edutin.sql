@@ -1,8 +1,3 @@
-/*==============================================================*/
-/* DBMS name:      PostgreSQL 9.x                               */
-/* Created on:     8/7/2023 18:18:33                            */
-/*==============================================================*/
-
 
 drop index USERS_ARTICLES_FK;
 
@@ -36,9 +31,6 @@ drop index USERS_PK;
 
 drop table USERS;
 
-/*==============================================================*/
-/* Table: ARTICLES                                              */
-/*==============================================================*/
 create table ARTICLES (
    ID_ARTICLES          INT4                 not null,
    TITLE                VARCHAR(255)         null,
@@ -54,30 +46,18 @@ create table ARTICLES (
    constraint PK_ARTICLES primary key (ID_ARTICLES)
 );
 
-/*==============================================================*/
-/* Index: ARTICLES_PK                                           */
-/*==============================================================*/
 create unique index ARTICLES_PK on ARTICLES (
 ID_ARTICLES
 );
 
-/*==============================================================*/
-/* Index: CATEGORIES_ARTICLES_FK                                */
-/*==============================================================*/
 create  index CATEGORIES_ARTICLES_FK on ARTICLES (
 ID_CATEGORIES
 );
 
-/*==============================================================*/
-/* Index: USERS_ARTICLES_FK                                     */
-/*==============================================================*/
 create  index USERS_ARTICLES_FK on ARTICLES (
 ID_USERS
 );
 
-/*==============================================================*/
-/* Table: CATEGORIES                                            */
-/*==============================================================*/
 create table CATEGORIES (
    ID_CATEGORIES        INT4                 not null,
    NAME                 VARCHAR(40)          null,
@@ -90,16 +70,10 @@ create table CATEGORIES (
    constraint PK_CATEGORIES primary key (ID_CATEGORIES)
 );
 
-/*==============================================================*/
-/* Index: CATEGORIES_PK                                         */
-/*==============================================================*/
 create unique index CATEGORIES_PK on CATEGORIES (
 ID_CATEGORIES
 );
 
-/*==============================================================*/
-/* Table: COMMENTS                                              */
-/*==============================================================*/
 create table COMMENTS (
    ID_COMMENTS          INT4                 not null,
    VALUE                FLOAT8               null,
@@ -111,30 +85,21 @@ create table COMMENTS (
    constraint PK_COMMENTS primary key (ID_COMMENTS)
 );
 
-/*==============================================================*/
-/* Index: COMMENTS_PK                                           */
-/*==============================================================*/
 create unique index COMMENTS_PK on COMMENTS (
 ID_COMMENTS
 );
 
-/*==============================================================*/
-/* Index: USERS_COMMENTS_FK                                     */
-/*==============================================================*/
+
 create  index USERS_COMMENTS_FK on COMMENTS (
 ID_USERS
 );
 
-/*==============================================================*/
-/* Index: ARTICLES_COMMENTS_FK                                  */
-/*==============================================================*/
+
 create  index ARTICLES_COMMENTS_FK on COMMENTS (
 ID_ARTICLES
 );
 
-/*==============================================================*/
-/* Table: PROFILES                                              */
-/*==============================================================*/
+
 create table PROFILES (
    ID_PROFILES          INT4                 not null,
    PHOTO                VARCHAR(255)         null,
@@ -142,23 +107,14 @@ create table PROFILES (
    constraint PK_PROFILES primary key (ID_PROFILES)
 );
 
-/*==============================================================*/
-/* Index: PROFILES_PK                                           */
-/*==============================================================*/
 create unique index PROFILES_PK on PROFILES (
 ID_PROFILES
 );
 
-/*==============================================================*/
-/* Index: PROFILES_USERS_FK                                     */
-/*==============================================================*/
 create  index PROFILES_USERS_FK on PROFILES (
 ID_USERS
 );
 
-/*==============================================================*/
-/* Table: USERS                                                 */
-/*==============================================================*/
 create table USERS (
    ID_USERS             INT4                 not null,
    ID_PROFILES          INT4                 null,
@@ -170,16 +126,10 @@ create table USERS (
    constraint PK_USERS primary key (ID_USERS)
 );
 
-/*==============================================================*/
-/* Index: USERS_PK                                              */
-/*==============================================================*/
 create unique index USERS_PK on USERS (
 ID_USERS
 );
 
-/*==============================================================*/
-/* Index: PROFILES_USERS2_FK                                    */
-/*==============================================================*/
 create  index PROFILES_USERS2_FK on USERS (
 ID_PROFILES
 );
