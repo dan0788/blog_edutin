@@ -14,16 +14,17 @@ return new class extends Migration
     public function up()
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->id('id_users');
+            $table->id();
             $table->string('full_name',255);
             $table->string('email')->unique();
             $table->string('password')->unique();
             $table->rememberToken();
-            $table->foreign('id_profiles')//para determinar foreign key
+            /* $table->foreign('id_profiles')//para determinar foreign key
                 ->references('id')//campo de referencia
-                ->on('users')//tabla de referencia
+                ->on('profiles')//tabla de referencia
                 ->onDelete('cascade')//si se elimina el usuario, se elimina su perfil
-                ->onUpdate('cascade');
+                ->onUpdate('cascade'); */
+                /* $table->foreignId('id_profiles')->constrained(); */
             $table->timestamps();
         });
     }

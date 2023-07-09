@@ -14,9 +14,8 @@ return new class extends Migration
     public function up()
     {
         Schema::create('profiles', function (Blueprint $table) {
-            $table->id('id_profiles');
+            $table->id();
             $table->string('photo',255)->nullable();
-            $table->datetime('verified_at');
             $table->unsignedBigInteger('id_users')->unique();
             $table->foreign('id_users')//para determinar foreign key
                 ->references('id')//campo de referencia
@@ -24,7 +23,7 @@ return new class extends Migration
                 ->onDelete('cascade')//si se elimina el usuario, se elimina su perfil
                 ->onUpdate('cascade');//si se actualiza el usuario, se actualiza su perfil
             //segunda forma
-            //$table->foreignId('id_users')->constrained();
+            /* $table->foreignId('id_users')->constrained(); */
             /* $table->timestamps(); */
         });
     }

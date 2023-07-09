@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('articles', function (Blueprint $table) {
-            $table->id('id_articles');
+            $table->id();
             $table->string('title',255);
             $table->string('slug',255)->unique();
             $table->string('introduction',255);
@@ -22,18 +22,18 @@ return new class extends Migration
             $table->text('body');
             $table->boolean('status')->default(0);
             $table->timestamps();
-            $table->unsignedBigInteger('id_users')->nullable();
+            $table->unsignedBigInteger('id_users')->unique();
             $table->foreign('id_users')//para determinar foreign key
                 ->references('id')//campo de referencia
                 ->on('users')//tabla de referencia
-                ->onDelete('set null')
                 ->onUpdate('cascade');
-            $table->unsignedBigInteger('id_categories');
+            $table->unsignedBigInteger('id_categories')->unique();
             $table->foreign('id_categories')//para determinar foreign key
                 ->references('id')//campo de referencia
                 ->on('categories')//tabla de referencia
-                ->onDelete('set null')
                 ->onUpdate('cascade');
+                /* $table->foreignId('id_users')->constrained();
+                $table->foreignId('id_categories')->constrained(); */
         });
     }
 
