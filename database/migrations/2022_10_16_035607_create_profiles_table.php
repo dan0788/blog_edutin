@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('profiles', function (Blueprint $table) {
-            $table->id();
+            $table->id('id_profiles');
             $table->string('photo',255)->nullable();
             $table->unsignedBigInteger('id_users')->unique();
             $table->foreign('id_users')//para determinar foreign key
