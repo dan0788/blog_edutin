@@ -24,11 +24,12 @@ class ArticleFactory extends Factory
             'title' => $title,
             'slug' => Str::slug($title),
             'introduction' => $this->faker->realText(255),
-            'image' => 'articles/'.$this->faker->image('public/storage/articles', 640, 480, null, false),
-            'body' => $this->faker->text(2000),
+            /* 'image' => 'articles/'.$this->faker->image('public/storage/articles', 640, 480, null, false), */
+            'image'=>Str::random(10),
+            'body' => $this->faker->text(20),
             'status' => $this->faker->boolean(),
-            'user_id' => User::all()->random()->id,
-            'category_id' => Category::all()->random()->id
+            'id_users' => User::all()->random()->id,
+            'id_categories' => Category::all()->random()->id
         ];
     }
 }

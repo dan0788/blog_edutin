@@ -22,12 +22,12 @@ return new class extends Migration
             $table->text('body');
             $table->boolean('status')->default(0);
             $table->timestamps();
-            $table->unsignedBigInteger('id_users')->unique();
+            $table->unsignedBigInteger('id_users')/* ->unique() */;
             $table->foreign('id_users')//para determinar foreign key
                 ->references('id')//campo de referencia
                 ->on('users')//tabla de referencia
                 ->onUpdate('cascade');
-            $table->unsignedBigInteger('id_categories')->unique();
+            $table->unsignedBigInteger('id_categories')/* ->unique() */;
             $table->foreign('id_categories')//para determinar foreign key
                 ->references('id')//campo de referencia
                 ->on('categories')//tabla de referencia

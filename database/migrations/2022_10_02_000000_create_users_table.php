@@ -17,14 +17,8 @@ return new class extends Migration
             $table->id();
             $table->string('full_name',255);
             $table->string('email')->unique();
-            $table->string('password')->unique();
+            $table->string('password');
             $table->rememberToken();
-            /* $table->foreign('id_profiles')//para determinar foreign key
-                ->references('id')//campo de referencia
-                ->on('profiles')//tabla de referencia
-                ->onDelete('cascade')//si se elimina el usuario, se elimina su perfil
-                ->onUpdate('cascade'); */
-                /* $table->foreignId('id_profiles')->constrained(); */
             $table->timestamps();
         });
     }

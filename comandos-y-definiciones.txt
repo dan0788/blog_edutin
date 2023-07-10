@@ -2,12 +2,16 @@ php artisan make:model nombre-modelo -m  -> crea el modelo de la tabla de bdd ju
     migración
 php artisan serve -> para ejecutar el servidor de artisan php
 php artisan migrate -> crea las migraciones en el orden de su timestamp en su nombre
+php artisan migrate:fresh -> elimina las tablas de las bdd y las vuelve a crear
 php artisan tinker -> para comprobar manualmente las relaciones de tablas
     $user= new User; -> crear objeto
     $user->profile(); -> comprobar relación con la tabla profile
     $user::all(); -> mostrar todos los registros en el objeto $user
     $user->password=Hash::make('12345'); -> genera una clave encriptada
     $user->save() -> para guardar cambios en la bdd
+php artisan make:seeder NameSeeder -> crea el seeder del modelo
+php artisan storage:link -> crea un acceso directo de lo que está en la carpeta storage a la 
+    carpeta public
 
 
 
