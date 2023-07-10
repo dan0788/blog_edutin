@@ -17,13 +17,13 @@ class CategoryFactory extends Factory
      */
     public function definition()
     {
-        $name=$this->faker->name();
+        $name=$this->faker->unique()->name();
         return [
             'name' => $name,
             'slug_categories' => Str::slug($name),
-            'image_categories' => Str::random(15),
-            'is_featured' => true,
-            'status_categories' => true
+            'image_categories' => 'categories/'.$this->faker->image('public/storage/categories', 400, 400, null, false),
+            'is_featured' => $this->faker->boolean(),
+            'status_categories' => $this->faker->boolean()
         ];
     }
 }

@@ -20,8 +20,8 @@ class CommentFactory extends Factory
     public function definition()
     {
         return [
-            'value' => 451.25,
-            'description' => Str::random(15),
+            'value' => $this->faker->numberBetween($min=1,$max=10),
+            'description' => $this->faker->realText(50),
             'id_users' => User::all()->random()->id,
             'id_articles' => Article::all()->random()->id
         ];
