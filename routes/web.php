@@ -14,9 +14,17 @@ use App\Http\Controllers\holamundoController;
 */
 
 Route::get('/', function () {
-    return "Hola mundo";
+    return view('welcome');
 });
 Route::get('/hola',[holamundoController::class,'index'])->name('home');
 Route::get('/submit', function () {
     return "Hi";
 });
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

@@ -1,3 +1,4 @@
+/* unidad 1 */
 php artisan make:model nombre-modelo -m  -> crea el modelo de la tabla de bdd junto con su 
     migración
 php artisan serve -> para ejecutar el servidor de artisan php
@@ -13,6 +14,11 @@ php artisan make:seeder NameSeeder -> crea el seeder del modelo
 php artisan storage:link -> crea un acceso directo de lo que está en la carpeta storage a la 
     carpeta public
 
+/* unidad 2 */
+composer require laravel/ui -> añadir autenticación
+php artisan ui:auth -> genera el login, register, views y routes
+php artisan ui bootstrap -> añadir bootstrap a la autenticación
+npm run dev -> para que se ejecute bootstrap5 en el proyecto en tiempo real
 
 
 
