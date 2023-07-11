@@ -19,6 +19,8 @@ composer require laravel/ui -> añadir autenticación
 php artisan ui:auth -> genera el login, register, views y routes
 php artisan ui bootstrap -> añadir bootstrap a la autenticación
 npm run dev -> para que se ejecute bootstrap5 en el proyecto en tiempo real
+php artisan make:notification nombre-de-email -> para crear el email de notificaciones para 
+    enviar
 
 
 
